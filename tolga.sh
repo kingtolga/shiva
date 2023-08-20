@@ -3,12 +3,13 @@
 # idea's for dave
 
 config_files=(
-
+    "$HOME/Programs/*"
+    "$HOME/Documents/*"
     "$HOME/shiva/*"
 )
 
-git_dir="$HOME/shiva.git"
-work_tree="$HOME/shiva"
+git_dir="$HOME/shiva.git"  # Use the correct path to the Git repository
+work_tree="$HOME/shiva"    # Use the correct path to the working tree
 
 # Navigate to the working tree directory
 cd "$work_tree" || exit
@@ -16,6 +17,7 @@ cd "$work_tree" || exit
 # Pull remote changes using merge
 git pull origin main --no-rebase
 
+# Add and commit local changes
 for path in "${config_files[@]}"; do
     for file in $path; do
         git add "$file"
@@ -23,4 +25,9 @@ for path in "${config_files[@]}"; do
 done
 
 git commit -m "update $(date)"
+
+# Handle file deletions
+git diff --name-only --diff-filter=D | xargs git rm
+
+# Push changes to remote
 git push origin main
