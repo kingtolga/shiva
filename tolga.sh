@@ -11,8 +11,18 @@ config_files=(
 remote_url=$(git remote get-url origin)
 
 # Add some tweaks
-git config --global http.postBuffer 524288000
 git config --global core.compression 9
+git config --global core.deltaBaseCacheLimit 2g
+git config --global core.useBloomFilters true
+git config --global diff.algorithm histogram
+git config --global fetch.prune always
+git config --global gc.auto 0
+git config --global http.postBuffer 524288000
+git config --global merge.defaultToUpstream patience
+git config --global reflogExpire 30.days
+git config --global reflogExpireUnreachable 30.days
+
+
 
 
 if [[ $remote_url == *"git@github.com"* ]]; then
