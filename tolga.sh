@@ -10,6 +10,11 @@ config_files=(
 # Check if the remote URL is set to SSH
 remote_url=$(git remote get-url origin)
 
+# Add some tweaks
+git config --global http.postBuffer 524288000
+git config --global core.compression 9
+
+
 if [[ $remote_url == *"git@github.com"* ]]; then
     echo "Remote URL is set to SSH. Proceeding with the script..."
 else
