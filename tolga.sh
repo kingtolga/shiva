@@ -45,8 +45,8 @@ echo "Committed local changes"
 # Handle file deletions
 git add --all
 commit_time=$(date +"%I:%M %p")  # Update commit time
-git commit -m "commit all deletions at $commit_time"
-echo "Committed deletions"
+git commit -m "Edited commit @ $commit_time"
+echo "Committed edits"
 
 # Push changes to remote
 push_time=$(date +"%I:%M %p")  # Update push time
