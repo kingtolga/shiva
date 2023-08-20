@@ -38,30 +38,17 @@ for path in "${config_files[@]}"; do
     git add "$path"
 done
 
-# Check if there are changes to commit
-if git diff-index --quiet HEAD; then
-    commit_action="No local changes to commit"
-else
-    commit_time=$(date +"%I:%M %p")  # 12-hour format
-    git commit -m "Update, add, or delete files at $commit_time"
-    commit_action="Committed local changes"
-fi
+commit_time=$(date +"%I:%M %p")  # 12-hour format
+git commit -m "update $(date) at $commit_time"
+echo "Committed local changes"
 
 # Handle file deletions
 git add --all
-if [[ $(git diff --staged --name-status) == *"D"* ]]; then
-    deletion_time=$(date +"%I:%M %p")  # Update deletion time
-    git commit -m "Delete files at $deletion_time"
-    deletion_action="Committed deletions"
-else
-    deletion_action="No deletions to commit"
-fi
+commit_time=$(date +"%I:%M %p")  # Update commit time
+git commit -m "commit all deletions at $commit_time"
+echo "Committed deletions"
 
 # Push changes to remote
 push_time=$(date +"%I:%M %p")  # Update push time
 git push origin main
 echo "Pushed changes to remote repository at $push_time"
-
-# Display commit and deletion actions
-echo "$commit_action"
-echo "$deletion_action"
