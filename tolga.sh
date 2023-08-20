@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # Tolga Erok
+# ¯\_(ツ)_/¯
+
 # 20/8/23
 
+# ¯\_(ツ)_/¯ Random test
 config_files=(
     "shiva"
 )
@@ -10,14 +13,11 @@ config_files=(
 # Check if the remote URL is set to SSH
 remote_url=$(git remote get-url origin)
 
-
 # Add some tweaks
 git config --global core.compression 9
 git config --global core.deltaBaseCacheLimit 2g
 git config --global diff.algorithm histogram
 git config --global http.postBuffer 524288000
-
-
 
 if [[ $remote_url == *"git@github.com"* ]]; then
     echo "Remote URL is set to SSH. Proceeding with the script..."
@@ -51,17 +51,17 @@ for path in "${config_files[@]}"; do
     git add "$path"
 done
 
-commit_time=$(date +"%I:%M %p")  # 12-hour format
+commit_time=$(date +"%I:%M %p") # 12-hour format
 git commit -m "update $(date) at $commit_time"
 echo "Committed local changes"
 
 # Handle file deletions
 git add --all
-commit_time=$(date +"%I:%M %p")  # Update commit time
+commit_time=$(date +"%I:%M %p") # Update commit time
 git commit -m "Edited commit @ $commit_time"
 echo "Committed edits"
 
 # Push changes to remote
-push_time=$(date +"%I:%M %p")  # Update push time
+push_time=$(date +"%I:%M %p") # Update push time
 git push origin main
 echo "Pushed changes to remote repository at $push_time"
