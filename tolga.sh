@@ -19,8 +19,6 @@ git config --global http.postBuffer 524288000
 git config --global merge.defaultToUpstream patience
 
 
-
-
 if [[ $remote_url == *"git@github.com"* ]]; then
     echo "Remote URL is set to SSH. Proceeding with the script..."
 else
