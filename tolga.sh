@@ -3,8 +3,8 @@
 # idea's for dave
 
 config_files=(
-    "$HOME/Programs/*"
-    "$HOME/Documents/*"
+    "$HOME/shiva/Programs/*"
+    "$HOME/shiva/Documents/*"
     "$HOME/shiva/*"
 )
 
