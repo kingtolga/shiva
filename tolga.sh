@@ -14,7 +14,7 @@ if [[ $remote_url == *"git@github.com"* ]]; then
     echo "Remote URL is set to SSH. Proceeding with the script..."
 else
     echo "Remote URL is not set to SSH. Please set up SSH key-based authentication for the remote repository."
-    echo "ssh-keygen -t ed25519 -C 'eroktolga@gmail.com'"
+    echo "ssh-keygen -t ed25519 -C 'your email'"
     echo "eval $(ssh-agent -s)"
     echo "ssh-add ~/.ssh/id_ed25519"
     echo "cat ~/.ssh/id_ed25519.pub"
