@@ -3,8 +3,8 @@
 # idea's for dave
 
 config_files=(
-    "$HOME/shiva/Programs/*"
-    "$HOME/shiva/Documents/*"
+    "$HOME/Programs/*"
+    "$HOME/Documents/*"
     "$HOME/shiva/*"
 )
 
@@ -14,8 +14,10 @@ work_tree="$HOME/shiva"    # Use the correct path to the working tree
 # Navigate to the working tree directory
 cd "$work_tree" || exit
 
-for file in "${config_files[@]}"; do
-    git add "$file"
+for path in "${config_files[@]}"; do
+    for file in $path; do
+        git add "$file"
+    done
 done
 
 git commit -m "update $(date)"
