@@ -3,9 +3,9 @@
 # idea's for dave
 
 config_files=(
-    /$HOME/Programs
-    /$HOME/Documents
-    /$HOME/shiva
+    "$HOME/Programs/*"
+    "$HOME/Documents/*"
+    "$HOME/shiva/*"
 )
 
 git_dir="$HOME/shiva.git"  # Use the correct path to the Git repository
