@@ -7,7 +7,7 @@
 
 # ¯\_(ツ)_/¯ Random test
 config_files=(
-    "shiva/"
+    "$HOME/shiva/"
 )
 
 # Check if the remote URL is set to SSH
