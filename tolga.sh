@@ -3,8 +3,7 @@
 # Tolga Erok
 
 config_files=(
-    "shiva/Programs"
-    "shiva/Documents"
+
     "shiva"
 )
 
@@ -20,7 +19,7 @@ else
     echo "ssh-add ~/.ssh/id_ed25519"
     echo "cat ~/.ssh/id_ed25519.pub"
     echo "git config --global credential.credentialStore gpg"
-    echo "eval \$(ssh-agent -s)"
+    echo "eval $(ssh-agent -s)"
     exit 1
 fi
 
