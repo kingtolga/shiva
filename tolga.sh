@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# idea's for dave
+# Tolga Erok
 
 config_files=(
     "shiva/Programs"
@@ -8,8 +8,8 @@ config_files=(
     "shiva"
 )
 
-git_dir="$HOME/shiva/shiva.git"  # Use the correct path to the Git repository
-work_tree="$HOME/shiva"    # Use the correct path to the working tree
+git_dir="$HOME/shiva/shiva.git"
+work_tree="$HOME/shiva"
 
 # Navigate to the working tree directory
 cd "$work_tree" || exit
