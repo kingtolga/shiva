@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Tolga Erok
+# 20/8/23
 
 config_files=(
-    
+
     "shiva"
 )
 
