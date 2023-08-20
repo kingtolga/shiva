@@ -3,9 +3,9 @@
 # idea's for dave
 
 config_files=(
-    "$HOME/shiva/Programs/*"
-    "$HOME/shiva/Documents/*"
-    "$HOME/shiva/*"
+    "shiva/Programs"
+    "shiva/Documents"
+    "shiva"
 )
 
 git_dir="$HOME/shiva/shiva.git"  # Use the correct path to the Git repository
@@ -19,15 +19,14 @@ git pull origin main --no-rebase
 
 # Add and commit local changes
 for path in "${config_files[@]}"; do
-    for file in $path; do
-        git add "$file"
-    done
+    git add "$path"
 done
 
 git commit -m "update $(date)"
 
 # Handle file deletions
-git diff --name-only --diff-filter=D | xargs git rm
+git add --all
+git commit -m "commit all deletions"
 
 # Push changes to remote
 git push origin main
