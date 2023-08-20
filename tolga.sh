@@ -36,7 +36,7 @@ else
     exit 1
 fi
 
-git_dir="$HOME/shiva/shiva.git"
+# git_dir="$HOME/shiva/shiva.git"
 work_tree="$HOME/shiva"
 
 # Navigate to the working tree directory
