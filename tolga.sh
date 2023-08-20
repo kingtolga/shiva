@@ -16,7 +16,7 @@ git config --global core.compression 9
 git config --global core.deltaBaseCacheLimit 2g
 git config --global diff.algorithm histogram
 git config --global http.postBuffer 524288000
-# git config --global merge.defaultToUpstream patience
+
 
 
 if [[ $remote_url == *"git@github.com"* ]]; then
