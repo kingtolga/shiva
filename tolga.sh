@@ -4,7 +4,6 @@
 # 20/8/23
 
 config_files=(
-
     "shiva"
 )
 
@@ -16,11 +15,11 @@ if [[ $remote_url == *"git@github.com"* ]]; then
 else
     echo "Remote URL is not set to SSH. Please set up SSH key-based authentication for the remote repository."
     echo "ssh-keygen -t ed25519 -C 'eroktolga@gmail.com'"
-    echo "eval \$(ssh-agent -s)"
+    echo "eval $(ssh-agent -s)"
     echo "ssh-add ~/.ssh/id_ed25519"
     echo "cat ~/.ssh/id_ed25519.pub"
     echo "git config --global credential.credentialStore gpg"
-    echo "eval $(ssh-agent -s)"
+
     exit 1
 fi
 
@@ -38,11 +37,15 @@ for path in "${config_files[@]}"; do
     git add "$path"
 done
 
-git commit -m "update $(date)"
+commit_time=$(date +"%I:%M %p")  # 12-hour format
+git commit -m "update $(date) at $commit_time"
 
 # Handle file deletions
 git add --all
-git commit -m "commit all deletions"
+commit_time=$(date +"%I:%M %p")  # Update commit time
+git commit -m "commit all deletions at $commit_time"
 
 # Push changes to remote
+push_time=$(date +"%I:%M %p")  # Update push time
 git push origin main
+echo "Changes pushed to remote repository at $push_time"
